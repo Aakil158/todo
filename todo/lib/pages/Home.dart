@@ -17,6 +17,8 @@ class _HomeState extends State<Home> {
   // hive box
   final _todobox = Hive.box('todobox');
 
+//controller 
+
 final _controller = TextEditingController();
 
 @override
@@ -40,26 +42,7 @@ ToDODb db=ToDODb();
     });
     db.updateData();
   }
-  //Save new task
-  void saveNewTask(){
-    setState(() {
-      db.toDoList.add([_controller.text, false]);
-      _controller.clear();
-    });
-    Navigator.of(context).pop();
-    db.updateData();
-  }
-  //Create a new task
-  void creatNewTask(){
-   showDialog (context: context,
-        builder: (context){
-      return dialogue(controller: _controller,
-      onSave: saveNewTask,
-      onCancel: Navigator.of(context).pop,
-      );
-        }
-    );
-  }
+
   //delete task
   void deleteTask(int index){
      setState(() {
@@ -71,17 +54,11 @@ ToDODb db=ToDODb();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor:Colors.red,
-        title: Center(
-          child: Text('TO-DO'),
-        ),
-      ),
-      backgroundColor: Colors.grey,
-      floatingActionButton: FloatingActionButton(
-        onPressed: creatNewTask,
-        child: Icon(Icons.add),
-      ),
+      backgroundColor: const Color.fromARGB(255, 157, 189, 255),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: creatNewTask,
+      //   child: Icon(Icons.add),
+      // ),
       body: ListView.builder(
         itemCount: db.toDoList.length,
         itemBuilder: (context , index){

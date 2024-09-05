@@ -49,7 +49,7 @@ class TodoTile extends StatelessWidget {
             ],
           ),
           decoration: BoxDecoration(
-            color: Colors.red,
+            color: Color.fromARGB(255, 255, 215, 196),
                 borderRadius: BorderRadius.circular(15),
           ),
         ),

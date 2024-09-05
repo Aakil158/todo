@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class dialogue extends StatelessWidget {
-   
+  
   final controller;
 VoidCallback onSave;
 VoidCallback onCancel;
@@ -16,16 +16,13 @@ required this.onCancel,
 
   @override
   Widget build(BuildContext context) {
-    return AlertDialog(
-      backgroundColor: Colors.transparent,
-      content: Container(
-        width: 300, height: 150,
+    return Container(
         alignment: Alignment.center,
         decoration: BoxDecoration(
           border: Border.all(width: 4,
-          color: Colors.red),
+          color: Colors.black),
           borderRadius: BorderRadius.circular(15),
-          color: Colors.grey,
+          color: Color.fromARGB(255, 255, 215, 196),
         ),
         child: Column(children: [
           //entering text
@@ -64,7 +61,6 @@ required this.onCancel,
             ],
           )
         ],),
-      ),
-    );
+      );
   }
 }
